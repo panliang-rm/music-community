@@ -6,11 +6,18 @@ import com.example.graduate.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AdminServiceImpl implements AdminService {
 
     @Autowired
     private AdminMapper adminMapper;
+
+    @Override
+    public List<Admin> allAdminUser() {
+        return adminMapper.allAdminUser();
+    }
 
     @Override
     public boolean veritypasswd(String name, String password) {

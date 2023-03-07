@@ -16,6 +16,11 @@
     SELECT count(*) FROM admin where name = #{0} and password = #{1} ;
   </select>
 
+  <select id="allAdminUser" resultMap="BaseResultMap">
+    select *
+    from admin
+  </select>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />

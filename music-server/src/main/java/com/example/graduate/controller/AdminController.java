@@ -5,6 +5,7 @@ import com.example.graduate.common.FatalMessage;
 import com.example.graduate.common.SuccessMessage;
 import com.example.graduate.constant.Constants;
 import com.example.graduate.domain.Admin;
+import com.example.graduate.domain.Consumer;
 import com.example.graduate.service.impl.AdminServiceImpl;
 
 import org.apache.commons.lang3.ObjectUtils.Null;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 public class AdminController {
@@ -39,7 +41,15 @@ public class AdminController {
     }
 
     /**
-     * 更新用户头像
+     * 返回所有管理员
+     */
+    @RequestMapping(value = "/admin", method = RequestMethod.GET)
+    public Object allUser() {
+        return new SuccessMessage<>(null, adminService.allAdminUser()).getMessage();
+    }
+
+    /**
+     * 更新管理员头像
      */
     @ResponseBody
     @RequestMapping(value = "/admin/avatar/update", method = RequestMethod.POST)
