@@ -12,6 +12,13 @@
     id, name, password, avator
   </sql>
 
+  <select id="adminLoginStatus" resultMap="BaseResultMap">
+    select *
+    from admin
+    where name = #{name,jdbcType=INTEGER}
+  </select>
+
+
   <select id="verifyPassword" resultType="java.lang.Integer">
     SELECT count(*) FROM admin where name = #{0} and password = #{1} ;
   </select>

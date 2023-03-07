@@ -114,7 +114,7 @@ public class ConsumerController {
         boolean res = consumerService.veritypasswd(username, password);
         if (res) {
             session.setAttribute("username", username);
-            return new SuccessMessage<List<Consumer>>("登录成功", consumerService.loginStatus(username)).getMessage();
+            return new SuccessMessage<>("登录成功", consumerService.loginStatus(username)).getMessage();
         } else {
             return new ErrorMessage("用户名或密码错误").getMessage();
         }

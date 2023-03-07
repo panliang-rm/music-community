@@ -41,13 +41,21 @@ export default defineComponent({
       let params = new URLSearchParams();
       params.append("name", ruleForm.username);
       params.append("password", ruleForm.password);
+    try {
       const result = (await HttpManager.getLoginStatus(params)) as ResponseBody;
       (proxy as any).$message({
         message: result.message,
         type: result.type,
       });
-
-      if (result.success) routerManager(RouterName.Info, { path: RouterName.Info });
+      if (result.success) {
+        proxy.$store.commit("setUserId", result.data[0].id);
+        proxy.$store.commit("setName", result.data[0].name);
+        proxy.$store.commit("setUserPic", result.data[0].avator);
+        routerManager(RouterName.Info, { path: RouterName.Info });
+      }
+    } catch (error) {
+        console.error(error);
+      }     
     }
     return {
       nusicName,

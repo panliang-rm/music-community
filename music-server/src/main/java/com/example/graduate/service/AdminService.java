@@ -7,6 +7,9 @@ import java.util.List;
 
 public interface AdminService {
 
+
+    List<Admin> adminLoginStatus(String name);
+
     List<Admin> allAdminUser();
 
     boolean veritypasswd(String name, String password);

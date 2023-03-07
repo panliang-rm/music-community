@@ -44,7 +44,7 @@ export default defineComponent({
     const store = useStore();
 
     const collapse = ref(true);
-    const username = ref("admin");
+    const username = computed(() => store.getters.name);
     const userPic = computed(() => store.getters.userPic);
     const nusicName = ref(MUSICNAME);
 

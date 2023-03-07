@@ -2,37 +2,18 @@
     <div class="container">
       <div class="handle-box">
         <el-button @click="deleteAll">批量删除</el-button>
-        <el-input v-model="searchWord" placeholder="筛选用户"></el-input>
+        <el-input v-model="searchWord" placeholder="筛选"></el-input>
       </div>
   
       <el-table height="550px" border size="small" :data="data" @selection-change="handleSelectionChange">
-        <el-table-column type="selection" width="40" align="center"></el-table-column>
-        <el-table-column label="ID" prop="id" width="50" align="center"></el-table-column>
-        <el-table-column label="用户头像" width="102" align="center">
+        <el-table-column type="selection" width="50" align="center"></el-table-column>
+        <el-table-column label="ID" prop="id" width="70" align="center"></el-table-column>
+        <el-table-column label="用户头像" width="120" align="center">
           <template v-slot="scope">
             <img :src="attachImageUrl(scope.row.avator)" style="width: 80px" />
           </template>
         </el-table-column>
-        <el-table-column label="用户名" prop="username" width="80" align="center"></el-table-column>
-        <el-table-column label="性别" width="50" align="center">
-          <template v-slot="scope">
-            <div>{{ changeSex(scope.row.sex) }}</div>
-          </template>
-        </el-table-column>
-        <el-table-column label="手机号码" prop="phoneNum" width="120" align="center"></el-table-column>
-        <el-table-column label="邮箱" prop="email" width="120" align="center"></el-table-column>
-        <el-table-column label="生日" width="120" align="center">
-          <template v-slot="scope">
-            <div>{{ getBirth(scope.row.birth) }}</div>
-          </template>
-        </el-table-column>
-        <el-table-column label="签名" prop="introduction"></el-table-column>
-        <el-table-column label="地区" prop="location" width="70" align="center"></el-table-column>
-        <el-table-column label="收藏" width="90" align="center">
-          <template v-slot="scope">
-            <el-button @click="goCollectPage(scope.row.id)">收藏</el-button>
-          </template>
-        </el-table-column>
+        <el-table-column label="用户名" prop="name" width="80" align="center"></el-table-column>
         <el-table-column label="操作" width="90" align="center">
           <template v-slot="scope">
             <el-button type="danger" @click="deleteRow(scope.row.id)">删除</el-button>
@@ -61,7 +42,6 @@
   import { HttpManager } from "@/api";
   import { RouterName } from "@/enums";
   import YinDelDialog from "@/components/dialog/YinDelDialog.vue";
-  import { getBirth } from "@/utils";
   
   export default defineComponent({
     components: {
@@ -101,7 +81,7 @@
       async function getData() {
         tableData.value = [];
         tempDate.value = [];
-        const result = (await HttpManager.getAllUser()) as ResponseBody;
+        const result = (await HttpManager.getAllAdmin()) as ResponseBody;
         tableData.value = result.data;
         tempDate.value = result.data;
         currentPage.value = 1;
@@ -111,23 +91,7 @@
         currentPage.value = val;
       }
   
-      /**
-       * 路由
-       */
-      function goCollectPage(id) {
-        const breadcrumbList = reactive([
-          {
-            path: RouterName.Consumer,
-            name: "用户管理",
-          },
-          {
-            path: "",
-            name: "收藏信息",
-          },
-        ]);
-        proxy.$store.commit("setBreadcrumbList", breadcrumbList);
-        routerManager(RouterName.Collect, { path: RouterName.Collect, query: { id } });
-      }
+   
   
       /**
        * 删除
@@ -171,10 +135,8 @@
         handleSelectionChange,
         handleCurrentChange,
         changeSex,
-        getBirth,
         deleteRow,
         confirm,
-        goCollectPage,
         attachImageUrl: HttpManager.attachImageUrl,
       };
     },

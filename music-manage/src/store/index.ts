@@ -2,7 +2,8 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    userPic: "/img/avatorImages/user.jpg",
+    userPic: "",
+    name: '',
     isPlay: false,
     url: '',
     id: '',
@@ -13,6 +14,7 @@ export default createStore({
     isPlay: state => state.isPlay,
     url: state => state.url,
     id: state => state.id,
+    name: state => state.name,
     breadcrumbList: state => state.breadcrumbList
   },
   mutations: {
@@ -20,6 +22,7 @@ export default createStore({
     setIsPlay: (state, isPlay) => { state.isPlay = isPlay },
     setUrl: (state, url) => { state.url = url },
     setId: (state, id) => { state.id = id },
+    setName: (state, name) => { state.name = name },
     setBreadcrumbList: (state, breadcrumbList) => { state.breadcrumbList = breadcrumbList }
   }
 })

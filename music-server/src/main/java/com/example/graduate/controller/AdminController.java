@@ -34,7 +34,7 @@ public class AdminController {
         boolean res = adminService.veritypasswd(name, password);
         if (res) {
             session.setAttribute("name", name);
-            return new SuccessMessage<Null>("登录成功").getMessage();
+            return new SuccessMessage<>("登录成功", adminService.adminLoginStatus(name)).getMessage();
         } else {
             return new ErrorMessage("用户名或密码错误").getMessage();
         }

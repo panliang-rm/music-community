@@ -6,16 +6,16 @@ const HttpManager = {
   // =======================> 管理员 API
   // 是否登录成功
   getLoginStatus: (params) => post(`admin/login/status`, params),
-   // 返回所有用户
-   getAllAdmin: () => get(`user`),
-   // 返回指定ID的用户
-   getAdminOfId: (id) => get(`user/detail?id=${id}`),
-   // 添加用户
-   setAdmin: (params) => post(`user/add`, params),
-   // 更新用户信息
-   updateAdminMsg: (params) => post(`user/update`, params),
-   // 删除用户
-   deleteAdmin: (id) => get(`user/delete?id=${id}`),
+   // 返回所有管理员
+   getAllAdmin: () => get(`admin`),
+   // 返回指定ID的管理员
+   getAdminOfId: (id) => get(`admin/detail?id=${id}`),
+   // 添加返管理员
+   setAdmin: (params) => post(`admin/add`, params),
+   // 更新管理员
+   updateAdminMsg: (params) => post(`admin/update`, params),
+   // 删除管理员
+   deleteAdmin: (id) => get(`admin/delete?id=${id}`),
 
   // =======================> 用户 API
   // 返回所有用户

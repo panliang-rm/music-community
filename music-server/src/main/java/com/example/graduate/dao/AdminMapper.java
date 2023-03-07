@@ -1,6 +1,7 @@
 package com.example.graduate.dao;
 
 import com.example.graduate.domain.Admin;
+import com.example.graduate.domain.Consumer;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -10,6 +11,9 @@ public interface AdminMapper {
 
 
     List<Admin> allAdminUser();
+
+    List<Admin> adminLoginStatus(String name);
+
 
     int deleteByPrimaryKey(Integer id);
 
