@@ -88,7 +88,7 @@ public class SingerController {
     // 返回所有歌手
     @RequestMapping(value = "/singer", method = RequestMethod.GET)
     public Object allSinger() {
-        return new SuccessMessage<List<Singer>>(null, singerService.allSinger()).getMessage();
+        return new SuccessMessage<>(null, singerService.allSinger()).getMessage();
     }
 
     // 根据歌手名查找歌手

@@ -11,4 +11,6 @@ public class Constants {
     public static String SONG_PATH = "file:" + PROJECT_PATH + "/song/";
     public static String SINGER_PIC_PATH = "file:" + PROJECT_PATH + "/img/singerPic/";
 
+    public static String SWIPER_PIC_PATH = "file:" + PROJECT_PATH + "/img/swiper/";
+
 }

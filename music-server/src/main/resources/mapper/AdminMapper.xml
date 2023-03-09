@@ -6,8 +6,8 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="avator" property="avator" jdbcType="VARCHAR" />
-
   </resultMap>
+
   <sql id="Base_Column_List">
     id, name, password, avator
   </sql>
