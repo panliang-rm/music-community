@@ -21,7 +21,7 @@ public class SwiperServiceImpl implements SwiperService {
 
     @Override
     public boolean updateSwiperMsg(Swiper swiper) {
-        return swiperMapper.updateByPrimaryKey(swiper) > 0;
+        return swiperMapper.updateByPrimaryKeySelective(swiper) > 0;
     }
 
     @Override

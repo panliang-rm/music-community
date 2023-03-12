@@ -28,6 +28,10 @@
         <el-icon><Document /></el-icon>
         <span>歌单管理</span>
       </el-menu-item>
+      <el-menu-item index="swiper">
+        <el-icon><Document /></el-icon>
+        <span>横幅管理</span>
+      </el-menu-item>
     </el-menu>
   </div>
 </template>

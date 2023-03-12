@@ -55,7 +55,7 @@ public class SwiperController {
     // 更新swiper banner
     @ResponseBody
     @RequestMapping(value = "/swiper/photo/update", method = RequestMethod.POST)
-    public Object updateSingerPic(@RequestParam("file") MultipartFile photoFile, @RequestParam("id") int id) {
+    public Object updateSwiperPhoto(@RequestParam("file") MultipartFile photoFile, @RequestParam("id") int id) {
         String fileName = System.currentTimeMillis() + photoFile.getOriginalFilename();
         String filePath = System.getProperty("user.dir") + System.getProperty("file.separator") + "img"
                 + System.getProperty("file.separator") + "swiper";
@@ -89,7 +89,7 @@ public class SwiperController {
     public Object updateSingerMsg(HttpServletRequest req) {
         String id = req.getParameter("id").trim();
         String isshow = req.getParameter("isshow").trim();
-        Swiper  swiper = new Swiper();
+        Swiper swiper = new Swiper();
         swiper.setId(Integer.parseInt(id));
         swiper.setisShow(new Byte(isshow));
         boolean res = swiperService.updateSwiperMsg(swiper);

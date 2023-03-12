@@ -22,6 +22,16 @@ export default function () {
       return "不明";
     } else if (value === "男" || value === "女") {
       return value;
+    } 
+  }
+
+  function changeShow(value) {
+    if (value == 0) {
+      return "显示";
+    } else if (value == 1) {
+      return "禁用";
+    } else if (value === "显示" || value === "禁用") {
+      return value;
     }
   }
 
@@ -76,6 +86,7 @@ export default function () {
       case RouterName.Singer:
       case RouterName.SongList:
       case RouterName.Error:
+      case RouterName.Swiper:
       default:
         proxy.$router.push({ path: options.path });
         break;

@@ -12,4 +12,5 @@ export const enum RouterName {
   SignIn = "/",
   SignOut = "0",
   Admin = "/admin",
+  Swiper = "/swiper"
 }

@@ -16,7 +16,7 @@ public interface SwiperMapper {
 
     int insertSwiper(Swiper swiper);
 
-    int updateByPrimaryKey(Swiper swiper);
+    int updateByPrimaryKeySelective(Swiper swiper);
 
     int updateSwiperPhoto(Swiper swiper);
 

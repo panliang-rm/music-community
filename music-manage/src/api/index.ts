@@ -53,6 +53,17 @@ const HttpManager = {
   // 删除歌手
   deleteSinger: (id) => get(`singer/delete?id=${id}`),
 
+  // =======================> 横幅swiper banner API
+  //返回所有swiper
+  getAllSwiper: () => get('swiper'),
+  //删除swiper
+  deleteSwiper: (id) => get(`swiper/delete?id=${id}`),
+  //更新swiper显示isshow
+  updateSwiperMsg: (params) => post(`swiper/update/isshow`, params),
+  //更新swiper photo
+  updateSwiperPhoto: (id) => post(`swiper/update/photo`, id),
+
+
   // =======================> 歌曲 API
   // 返回所有歌曲
   getAllSong: () => get(`song`),
@@ -86,6 +97,7 @@ const HttpManager = {
   getListSongOfSongId: (songListId) => get(`listSong/detail?songListId=${songListId}`),
   // 删除歌单里的歌曲
   deleteListSong: (songId) => get(`listSong/delete?songId=${songId}`)
+
 
 }
 

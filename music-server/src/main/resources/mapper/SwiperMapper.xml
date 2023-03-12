@@ -37,20 +37,15 @@
         update swiper
         <set>
             <if test="photo != null">
-                name = #{name,jdbcType=VARCHAR},
+                photo = #{photo},
             </if>
             <if test="isshow != null">
-                password = #{isshow,jdbcType=TINYINT},
+                isshow = #{isshow,jdbcType=TINYINT},
             </if>
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.example.graduate.domain.Swiper">
-        update swiper
-        set photo = #{name,jdbcType=VARCHAR},
-            isshow = #{isshow,jdbcType=TINYINT}
-        where id = #{id,jdbcType=INTEGER}
-    </update>
+
     <update id="updateSwiperPhoto" parameterType="com.example.graduate.domain.Swiper">
         update swiper
         <set >

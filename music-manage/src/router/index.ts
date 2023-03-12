@@ -50,7 +50,12 @@ const routes: Array<RouteRecordRaw> = [
         path: '/Collect',
         component: () => import('@/views/CollectPage.vue'),
         meta: { title: 'Collect' }
-      }
+      },
+      {
+        path: '/Swiper',
+        component: () => import('@/views/SwiperPage.vue'),
+        meta: { title: 'Swiper' }
+      },
     ]
   },
   {
