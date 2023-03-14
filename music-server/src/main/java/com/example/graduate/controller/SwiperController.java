@@ -57,7 +57,7 @@ public class SwiperController {
     @RequestMapping(value = "/swiper/photo/update", method = RequestMethod.POST)
     public Object updateSwiperPhoto(@RequestParam("file") MultipartFile photoFile, @RequestParam("id") int id) {
         String fileName = System.currentTimeMillis() + photoFile.getOriginalFilename();
-        String filePath = System.getProperty("user.dir") + System.getProperty("file.separator") + "img"
+        String filePath = System.getProperty("user.dir") + System.getProperty("file.separator") + "music-server" + System.getProperty("file.separator") + "img"
                 + System.getProperty("file.separator") + "swiper";
         File file1 = new File(filePath);
         if (!file1.exists()) {

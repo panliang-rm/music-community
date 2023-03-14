@@ -146,15 +146,19 @@ public class SingerController {
     @RequestMapping(value = "/singer/avatar/update", method = RequestMethod.POST)
     public Object updateSingerPic(@RequestParam("file") MultipartFile avatorFile, @RequestParam("id") int id) {
         String fileName = System.currentTimeMillis() + avatorFile.getOriginalFilename();
-        String filePath = System.getProperty("user.dir") + System.getProperty("file.separator") + "img"
+        String filePath = System.getProperty("user.dir") + System.getProperty("file.separator") + "music-server" + System.getProperty("file.separator") + "img"
                 + System.getProperty("file.separator") + "singerPic";
         File file1 = new File(filePath);
+        System.out.println(fileName);
+        System.out.println(filePath);
         if (!file1.exists()) {
             file1.mkdir();
         }
 
         File dest = new File(filePath + System.getProperty("file.separator") + fileName);
         String imgPath = "/img/singerPic/" + fileName;
+        System.out.println(imgPath);
+
         try {
             avatorFile.transferTo(dest);
             Singer singer = new Singer();

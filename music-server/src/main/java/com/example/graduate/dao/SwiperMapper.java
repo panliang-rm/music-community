@@ -18,7 +18,6 @@ public interface SwiperMapper {
 
     int updateByPrimaryKeySelective(Swiper swiper);
 
-    int updateSwiperPhoto(Swiper swiper);
 
     
 }
