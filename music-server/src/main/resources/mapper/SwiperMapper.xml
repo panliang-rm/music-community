@@ -37,7 +37,7 @@
         update swiper
         <set>
             <if test="photo != null">
-                photo = #{photo},
+                photo = #{photo,jdbcType=VARCHAR},
             </if>
             <if test="isshow != null">
                 isshow = #{isshow,jdbcType=TINYINT},

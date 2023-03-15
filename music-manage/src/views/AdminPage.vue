@@ -49,7 +49,7 @@
     },
     setup() {
       const { proxy } = getCurrentInstance();
-      const { changeSex, routerManager } = mixin();
+      const { routerManager } = mixin();
   
       const tableData = ref([]); // 记录歌曲，用于显示
       const tempDate = ref([]); // 记录歌曲，用于搜索时能临时记录一份歌曲列表
@@ -134,7 +134,6 @@
         deleteAll,
         handleSelectionChange,
         handleCurrentChange,
-        changeSex,
         deleteRow,
         confirm,
         attachImageUrl: HttpManager.attachImageUrl,

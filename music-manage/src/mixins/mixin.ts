@@ -26,12 +26,14 @@ export default function () {
   }
 
   function changeShow(value) {
-    if (value == 0) {
-      return "显示";
-    } else if (value == 1) {
+    if (value === 1) {
+      return "启用";
+    } else if (value === 0) {
       return "禁用";
     } else if (value === "显示" || value === "禁用") {
       return value;
+    } else {
+      return "异常";
     }
   }
 
@@ -97,5 +99,5 @@ export default function () {
     proxy.$router.go(step);
   }
 
-  return { changeSex, routerManager, goBack, beforeImgUpload, beforeSongUpload };
+  return { changeSex, changeShow, routerManager, goBack, beforeImgUpload, beforeSongUpload };
 }
